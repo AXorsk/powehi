@@ -1,4 +1,4 @@
 # powehi
-A visually and physically javascript black-hole simulator
+A visually and physically H5 black-hole simulator
 
 imitate Powehi BH
