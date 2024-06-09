@@ -32,17 +32,21 @@ var currentTime = 0;
 var clicked = false,
 	clickedTime = 0;
 
-// $(document).on("touchstart", function () {
+// $(document).on("touchstart", function (e) {
+// 	e.preventDefault();
 // 	clicked = true;
 // });
-$(document).mousedown(function () {
+$(document).mousedown(function (e) {
+	e.preventDefault();
 	clicked = true;
 });
 
-// $(document).on("touchend", function () {
-// 	clicked = true;
+// $(document).on("touchend", function (e) {
+// 	e.preventDefault();
+// 	clicked = false;
 // });
-$(document).mouseup(function () {
+$(document).mouseup(function (e) {
+	e.preventDefault();
 	clicked = false;
 });
 
@@ -62,11 +66,13 @@ function init(image) {
 	mouse = { x: originX / 2, y: -(originY / 2) + canvas.height, moved: false };
 
 	$(document).on("touchmove", function (e) {
+		e.preventDefault();
 		mouse.x = e.touches[0].pageX;
 		mouse.y = -e.touches[0].pageY + canvas.height;
 		mouse.moved = true;
 	});
 	$(document).mousemove(function (e) {
+		e.preventDefault();
 		mouse.x = e.pageX;
 		mouse.y = -e.pageY + canvas.height;
 		mouse.moved = true;
